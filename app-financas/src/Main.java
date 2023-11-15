@@ -3,10 +3,14 @@ import java.util.List;
 import java.util.Scanner;
 
 import entities.Expenses;
+import entities.User;
 
 public class Main {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
+
+        System.out.println("Qual o seu nome?");
+        String nameUser = scan.nextLine();
 
         System.out.println("Qual foi o salário recebido?");
         double valorRecebido = scan.nextDouble();
@@ -15,7 +19,8 @@ public class Main {
         int quantidadeDespesas = scan.nextInt();
 
 
-        List<Expenses> listaDespesas = new ArrayList<Expenses>();
+        User user = new User(nameUser, valorRecebido);
+
 
         for(int i=0; i < quantidadeDespesas; i++){
             scan.nextLine();
@@ -24,10 +29,14 @@ public class Main {
             System.out.println("Qual o valor da despesa número "+(i+1)+"?");
             double valorDespesa = scan.nextDouble();
 
-            listaDespesas.add(new Expenses(nomeDespesa, valorDespesa));
+            user.addExpense(new Expenses(nomeDespesa, valorDespesa));
+
         }
 
-        for(Expenses despesa : listaDespesas){
+
+        System.out.println(user);
+
+        for(Expenses despesa : user.getListExpense()){
             System.out.println(despesa);
         }
 
