@@ -1,6 +1,6 @@
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
+
+
 
 import entities.Expenses;
 import entities.User;
@@ -41,5 +41,14 @@ public class Main {
         }
 
         scan.close();
+
+
+
+
+
+
+
+
+
     }
 }
